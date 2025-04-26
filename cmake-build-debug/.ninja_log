@@ -1,0 +1,11 @@
+# ninja log v6
+24	195	7673181978549974	CMakeFiles/pwr_AiZO_project2.dir/src/AdjacencyList.cpp.obj	103fd6fa3e2e6dda
+17	999	7673181978489920	CMakeFiles/pwr_AiZO_project2.dir/src/main.cpp.obj	e19a2a3075baf395
+32	1061	7673181978640032	CMakeFiles/pwr_AiZO_project2.dir/src/AdjacencyMatrix.cpp.obj	7048ea803a781a28
+1062	1466	7673181988935481	pwr_AiZO_project2.exe	e7c92230b79a342d
+10	903	7673185050527105	CMakeFiles/pwr_AiZO_project2.dir/src/AdjacencyMatrix.cpp.obj	7048ea803a781a28
+903	1066	7673185059471728	pwr_AiZO_project2.exe	e7c92230b79a342d
+20	790	7673185870264109	CMakeFiles/pwr_AiZO_project2.dir/src/main.cpp.obj	e19a2a3075baf395
+790	932	7673185877971107	pwr_AiZO_project2.exe	e7c92230b79a342d
+18	769	7673186284941026	CMakeFiles/pwr_AiZO_project2.dir/src/main.cpp.obj	e19a2a3075baf395
+770	915	7673186292467854	pwr_AiZO_project2.exe	e7c92230b79a342d
