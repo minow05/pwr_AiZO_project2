@@ -1,11 +1,17 @@
 # ninja log v6
-24	195	7673181978549974	CMakeFiles/pwr_AiZO_project2.dir/src/AdjacencyList.cpp.obj	103fd6fa3e2e6dda
-17	999	7673181978489920	CMakeFiles/pwr_AiZO_project2.dir/src/main.cpp.obj	e19a2a3075baf395
-32	1061	7673181978640032	CMakeFiles/pwr_AiZO_project2.dir/src/AdjacencyMatrix.cpp.obj	7048ea803a781a28
-1062	1466	7673181988935481	pwr_AiZO_project2.exe	e7c92230b79a342d
-10	903	7673185050527105	CMakeFiles/pwr_AiZO_project2.dir/src/AdjacencyMatrix.cpp.obj	7048ea803a781a28
-903	1066	7673185059471728	pwr_AiZO_project2.exe	e7c92230b79a342d
-20	790	7673185870264109	CMakeFiles/pwr_AiZO_project2.dir/src/main.cpp.obj	e19a2a3075baf395
-790	932	7673185877971107	pwr_AiZO_project2.exe	e7c92230b79a342d
-18	769	7673186284941026	CMakeFiles/pwr_AiZO_project2.dir/src/main.cpp.obj	e19a2a3075baf395
-770	915	7673186292467854	pwr_AiZO_project2.exe	e7c92230b79a342d
+2866	7487	7674521032620537	tests[1]_tests.cmake	9c84dbf7e9a04a14
+36	1280	7674520845145592	CMakeFiles/pwr_AiZO_project2.dir/src/AdjacencyList.cpp.obj	103fd6fa3e2e6dda
+39	938	7674520205364197	CMakeFiles/pwr_AiZO_project2.dir/src/main.cpp.obj	e19a2a3075baf395
+62	1465	7674519699785230	CMakeFiles/pwr_AiZO_project2.dir/src/AdjacencyMatrix.cpp.obj	7048ea803a781a28
+33	13202	7674407417229441	_deps/googletest-build/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.obj	922e163c7fe84f3e
+6	793	7674521337449033	build.ninja	66dc2d67cbb324ee
+1281	1506	7674520857585910	pwr_AiZO_project2.exe	e7c92230b79a342d
+39	2242	7674407417289498	_deps/googletest-build/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.obj	375fa7678c2b8e05
+46	2866	7674520958303085	CMakeFiles/tests.dir/tests/test_AdjacencyMatrix.cpp.obj	7b607163fb547f83
+13205	16654	7674407548950082	lib/libgtest.a	61842d0f5f328023
+16654	16729	7674407583447589	lib/libgtest_main.a	d5c06201e3764cf9
+65	2346	7674471989996898	CMakeFiles/tests.dir/src/AdjacencyMatrix.cpp.obj	62ec0dddf220d9d3
+53	1671	7674520958383161	CMakeFiles/tests.dir/src/AdjacencyList.cpp.obj	f187db24e3784760
+2866	7487	7674521032620537	tests.exe	9c84dbf7e9a04a14
+2866	7487	7674521032620537	D:/GitHub_Repos/pwr_AiZO_project2/cmake-build-debug/tests[1]_tests.cmake	9c84dbf7e9a04a14
+52	2942	7674474560308815	CMakeFiles/tests.dir/tests/test_AdjacencyList.cpp.obj	92af0251f1b05114

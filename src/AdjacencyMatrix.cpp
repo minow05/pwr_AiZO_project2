@@ -1,13 +1,16 @@
-#include <iostream>
-#include <sstream>
 #include "../include/graph/AdjacencyMatrix.h"
 
 AdjacencyMatrix::AdjacencyMatrix(int vertices) : vertices(vertices) {
     buildMatrix(vertices);
 }
 
-void AdjacencyMatrix::buildMatrix(int vertices) {
-    matrix = std::vector<std::vector<int>>(vertices, std::vector<int>(vertices, 0));
+AdjacencyMatrix::AdjacencyMatrix(AdjacencyMatrix &adjMatrix) {
+    this -> vertices = adjMatrix.vertices;
+    this -> matrix = adjMatrix.matrix;
+}
+
+void AdjacencyMatrix::buildMatrix(int size) {
+    matrix = std::vector<std::vector<int>>(size, std::vector<int>(size, 0));
 }
 
 void AdjacencyMatrix::setVertices(int size) {
@@ -16,6 +19,9 @@ void AdjacencyMatrix::setVertices(int size) {
 }
 
 bool AdjacencyMatrix::connect(int vertex1, int vertex2) {
+    if (vertex1 >= vertices || vertex2 >= vertices){
+        return false;
+    }
     if (matrix[vertex1][vertex2] == 1 && matrix[vertex2][vertex1] == 1){
         return false;
     } else {
@@ -26,6 +32,9 @@ bool AdjacencyMatrix::connect(int vertex1, int vertex2) {
 }
 
 bool AdjacencyMatrix::disconnect(int vertex1, int vertex2) {
+    if (vertex1 >= vertices || vertex2 >= vertices){
+        return false;
+    }
     if (matrix[vertex1][vertex2] == 0 && matrix[vertex2][vertex1] == 0){
         return false;
     } else {
@@ -45,3 +54,14 @@ std::string AdjacencyMatrix::print() {
     }
     return output.str();
 }
+
+AdjacencyMatrix& AdjacencyMatrix::operator= (const AdjacencyMatrix &adjMatrix) {
+    if (this == &adjMatrix){
+        return *this;
+    }
+    this -> vertices = adjMatrix.vertices;
+    this -> matrix = adjMatrix.matrix;
+    return *this;
+}
+
+

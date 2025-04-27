@@ -7,4 +7,32 @@ add_executable(pwr_AiZO_project2 src/main.cpp
         include/graph/AdjacencyMatrix.h
         include/graph/AdjacencyList.h
         src/AdjacencyList.cpp
-        src/AdjacencyMatrix.cpp)
+        src/AdjacencyMatrix.cpp
+        include/graph/GraphBuilder.h
+
+)
+
+include(FetchContent)
+
+FetchContent_Declare(
+        googletest
+        URL https://github.com/google/googletest/archive/03597a01ee50ed33e9dfd640b249b4be3799d395.zip
+)
+
+FetchContent_MakeAvailable(googletest)
+
+enable_testing()
+
+add_executable(tests
+        tests/test_AdjacencyMatrix.cpp
+        src/AdjacencyMatrix.cpp
+        src/AdjacencyList.cpp
+        tests/test_AdjacencyList.cpp
+)
+
+target_include_directories(tests PRIVATE include)
+
+target_link_libraries(tests PRIVATE GTest::gtest_main)
+
+include(GoogleTest)
+gtest_discover_tests(tests)
