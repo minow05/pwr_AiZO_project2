@@ -101,6 +101,13 @@ build CMakeFiles/tests.dir/tests/test_AdjacencyMatrix.cpp.obj: CXX_COMPILER__tes
   OBJECT_DIR = CMakeFiles\tests.dir
   OBJECT_FILE_DIR = CMakeFiles\tests.dir\tests
 
+build CMakeFiles/tests.dir/tests/test_AdjacencyList.cpp.obj: CXX_COMPILER__tests_unscanned_Debug D$:/GitHub_Repos/pwr_AiZO_project2/tests/test_AdjacencyList.cpp || cmake_object_order_depends_target_tests
+  DEP_FILE = CMakeFiles\tests.dir\tests\test_AdjacencyList.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -ID:/GitHub_Repos/pwr_AiZO_project2/include -isystem D:/GitHub_Repos/pwr_AiZO_project2/cmake-build-debug/_deps/googletest-src/googletest/include -isystem D:/GitHub_Repos/pwr_AiZO_project2/cmake-build-debug/_deps/googletest-src/googletest
+  OBJECT_DIR = CMakeFiles\tests.dir
+  OBJECT_FILE_DIR = CMakeFiles\tests.dir\tests
+
 build CMakeFiles/tests.dir/src/AdjacencyMatrix.cpp.obj: CXX_COMPILER__tests_unscanned_Debug D$:/GitHub_Repos/pwr_AiZO_project2/src/AdjacencyMatrix.cpp || cmake_object_order_depends_target_tests
   DEP_FILE = CMakeFiles\tests.dir\src\AdjacencyMatrix.cpp.obj.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
@@ -115,13 +122,6 @@ build CMakeFiles/tests.dir/src/AdjacencyList.cpp.obj: CXX_COMPILER__tests_unscan
   OBJECT_DIR = CMakeFiles\tests.dir
   OBJECT_FILE_DIR = CMakeFiles\tests.dir\src
 
-build CMakeFiles/tests.dir/tests/test_AdjacencyList.cpp.obj: CXX_COMPILER__tests_unscanned_Debug D$:/GitHub_Repos/pwr_AiZO_project2/tests/test_AdjacencyList.cpp || cmake_object_order_depends_target_tests
-  DEP_FILE = CMakeFiles\tests.dir\tests\test_AdjacencyList.cpp.obj.d
-  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  INCLUDES = -ID:/GitHub_Repos/pwr_AiZO_project2/include -isystem D:/GitHub_Repos/pwr_AiZO_project2/cmake-build-debug/_deps/googletest-src/googletest/include -isystem D:/GitHub_Repos/pwr_AiZO_project2/cmake-build-debug/_deps/googletest-src/googletest
-  OBJECT_DIR = CMakeFiles\tests.dir
-  OBJECT_FILE_DIR = CMakeFiles\tests.dir\tests
-
 
 # =============================================================================
 # Link build statements for EXECUTABLE target tests
@@ -130,7 +130,7 @@ build CMakeFiles/tests.dir/tests/test_AdjacencyList.cpp.obj: CXX_COMPILER__tests
 #############################################
 # Link the executable tests.exe
 
-build tests.exe tests[1]_tests.cmake | ${cmake_ninja_workdir}tests[1]_tests.cmake: CXX_EXECUTABLE_LINKER__tests_Debug CMakeFiles/tests.dir/tests/test_AdjacencyMatrix.cpp.obj CMakeFiles/tests.dir/src/AdjacencyMatrix.cpp.obj CMakeFiles/tests.dir/src/AdjacencyList.cpp.obj CMakeFiles/tests.dir/tests/test_AdjacencyList.cpp.obj | lib/libgtest_main.a lib/libgtest.a || lib/libgtest.a lib/libgtest_main.a
+build tests.exe tests[1]_tests.cmake | ${cmake_ninja_workdir}tests[1]_tests.cmake: CXX_EXECUTABLE_LINKER__tests_Debug CMakeFiles/tests.dir/tests/test_AdjacencyMatrix.cpp.obj CMakeFiles/tests.dir/tests/test_AdjacencyList.cpp.obj CMakeFiles/tests.dir/src/AdjacencyMatrix.cpp.obj CMakeFiles/tests.dir/src/AdjacencyList.cpp.obj | lib/libgtest_main.a lib/libgtest.a || lib/libgtest.a lib/libgtest_main.a
   FLAGS = -g
   LINK_LIBRARIES = lib/libgtest_main.a  lib/libgtest.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\tests.dir

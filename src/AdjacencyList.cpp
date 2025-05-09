@@ -29,12 +29,9 @@ bool AdjacencyList::connect(int vertex1, int vertex2) {
     if (vertex1 >= vertices || vertex2 >= vertices){
         return false;
     } else {
-        if (std::find(list[vertex1].begin(), list[vertex1].end(), vertex2) == list[vertex1].end() &&
-            std::find(list[vertex2].begin(), list[vertex2].end(), vertex1) == list[vertex2].end()){
+        if (std::find(list[vertex1].begin(), list[vertex1].end(), vertex2) == list[vertex1].end()){
             list[vertex1].push_back(vertex2);
             list[vertex1].sort();
-            list[vertex2].push_back(vertex1);
-            list[vertex2].sort();
             return true;
         }
         return false;
@@ -45,12 +42,9 @@ bool AdjacencyList::disconnect(int vertex1, int vertex2) {
     if (vertex1 >= vertices || vertex2 >= vertices){
         return false;
     } else {
-        if (std::find(list[vertex1].begin(), list[vertex1].end(), vertex2) != list[vertex1].end() &&
-            std::find(list[vertex2].begin(), list[vertex2].end(), vertex1) != list[vertex2].end()){
+        if (std::find(list[vertex1].begin(), list[vertex1].end(), vertex2) != list[vertex1].end()){
             list[vertex1].remove(vertex2);
             list[vertex1].sort();
-            list[vertex2].remove(vertex1);
-            list[vertex2].sort();
             return true;
         } else {
             return false;
@@ -65,4 +59,13 @@ void AdjacencyList::buildList(int size) {
 void AdjacencyList::setVertices(int size) {
     this->vertices = size;
     buildList(size);
+}
+
+AdjacencyList &AdjacencyList::operator=(AdjacencyList &adjacencyList) {
+    if (this == &adjacencyList){
+        return *this;
+    }
+    this -> list = adjacencyList.list;
+    this -> vertices = adjacencyList.vertices;
+    return *this;
 }

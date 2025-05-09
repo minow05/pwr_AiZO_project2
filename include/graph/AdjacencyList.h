@@ -10,6 +10,7 @@ class AdjacencyList {
 public:
     explicit AdjacencyList(int size);
     AdjacencyList(AdjacencyList& adjList);
+    AdjacencyList& operator= (AdjacencyList& adjacencyList);
     bool connect(int vertex1, int vertex2);
     bool disconnect(int vertex1, int vertex2);
     void setVertices(int size);
