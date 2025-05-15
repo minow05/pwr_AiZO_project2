@@ -2,44 +2,45 @@
 #include "../include/graph/AdjacencyList.h"
 #define SIZE 5
 
-TEST(AdjacencyList, connect){
-    AdjacencyList list(SIZE);
-    EXPECT_TRUE(list.connect(0, 1));
-    EXPECT_FALSE(list.connect(0, 1));
+TEST(AdjacencyList, constructorFill) {
+    EXPECT_ANY_THROW(AdjacencyList list(SIZE, true, -1));
+    EXPECT_ANY_THROW(AdjacencyList list (SIZE, false, 101));
 }
-
-TEST(AdjacencyList, disconnet){
-    AdjacencyList list(SIZE);
-    EXPECT_FALSE(list.disconnect(0, 1));
-    list.connect(0, 1);
-    EXPECT_TRUE(list.disconnect(0, 1));
+TEST(AdjacencyList, constructorDirected){
+    AdjacencyList list(SIZE, true, 100);
+    EXPECT_TRUE(list.directed);
+    AdjacencyList list2(SIZE, false, 100);
+    EXPECT_FALSE(list2.directed);
 }
-
-TEST(AdjacencyList, listOutOfBounds){
-    AdjacencyList list(SIZE);
-    EXPECT_NO_FATAL_FAILURE(list.connect(5, 6));
+TEST(AdjacencyList, connectAlreadyConnected){
+    AdjacencyList list(SIZE, true, 0);
+    EXPECT_TRUE(list.connect(2, 1, 10));
+    EXPECT_FALSE(list.connect(2, 1, 0));
 }
-
-TEST(AdjacencyList, listResize){ //expect removed connections
-    AdjacencyList list(SIZE);
-    list.connect(0, 1);
-    EXPECT_NO_FATAL_FAILURE(list = AdjacencyList(SIZE + 1));
-    EXPECT_TRUE(list.connect(0, 1));
-        list = AdjacencyList(SIZE);
-    list.connect(0, 1);
-    EXPECT_NO_FATAL_FAILURE(list = AdjacencyList(SIZE - 1));
-    EXPECT_TRUE(list.connect(0, 1));
+TEST(AdjacencyList, connectOutOfBounds){
+    AdjacencyList list(SIZE, true, 0);
+    EXPECT_ANY_THROW(list.connect(SIZE, SIZE + 1, 0));
+    EXPECT_ANY_THROW(list.connect(SIZE - SIZE, SIZE - SIZE - 1, 0));
 }
-
-TEST(AdjacencyList, setVertices){
-    AdjacencyList list(SIZE);
-    list.setVertices(10);
-    EXPECT_TRUE(list.connect(0, 9));
+TEST(AdjacencyList, disconnectAlreadyDisconnected){
+    AdjacencyList list(SIZE, true, 0);
+    EXPECT_FALSE(list.disconnect(2, 0));
+    EXPECT_TRUE(list.connect(2, 0, 1));
+    EXPECT_TRUE(list.disconnect(2, 0));
+    EXPECT_FALSE(list.disconnect(2, 0));
 }
-
-TEST(AdjacencyList, print){
-    AdjacencyList list(SIZE - 2); //3x3 MATRIX
-    list.connect(0, 1);
-    list.connect(1, 2);
-    EXPECT_EQ(list.print(), "0: 1 \n1: 0 2 \n2: 1 \n"); //cursed test
+TEST(AdjacencyList, disconnectOutOfBounds){
+    AdjacencyList list(SIZE, true, 0);
+    EXPECT_ANY_THROW(list.disconnect(SIZE, SIZE + 1));
+    EXPECT_ANY_THROW(list.disconnect(SIZE - SIZE, SIZE - SIZE - 1));
+}
+TEST(AdjacencyList, copyConstructor){
+    AdjacencyList list(SIZE, true, 75);
+    AdjacencyList list2(list);
+    EXPECT_EQ(list.print(), list2.print());
+}
+TEST(AdjacencyList, equalOperator){
+    AdjacencyList list(SIZE, true, 75);
+    AdjacencyList list2 = list;
+    EXPECT_EQ(list.print(), list2.print());
 }

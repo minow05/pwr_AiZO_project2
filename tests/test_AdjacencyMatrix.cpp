@@ -1,43 +1,45 @@
 #include <gtest/gtest.h>
 #include "../include/graph/AdjacencyMatrix.h"
 #define SIZE 5
-
-TEST(AdjacencyMatrix, connect){
-    AdjacencyMatrix matrix(SIZE);
-    EXPECT_TRUE(matrix.connect(0, 1));
-    EXPECT_FALSE(matrix.connect(0, 1));
+TEST(AdjacencyMatrix, constructorFill) {
+    EXPECT_ANY_THROW(AdjacencyMatrix matrix(SIZE, true, -1));
+    EXPECT_ANY_THROW(AdjacencyMatrix matrix(SIZE, false, 101));
 }
-
-TEST(AdjacencyMatrix, disconnet){
-    AdjacencyMatrix matrix(SIZE);
-    EXPECT_FALSE(matrix.disconnect(0, 1));
-    matrix.connect(0, 1);
-    EXPECT_TRUE(matrix.disconnect(0, 1));
+TEST(AdjacencyMatrix, constructorDirected){
+    AdjacencyMatrix list(SIZE, true, 100);
+    EXPECT_TRUE(list.directed);
+    AdjacencyMatrix list2(SIZE, false, 100);
+    EXPECT_FALSE(list2.directed);
 }
-
-TEST(AdjacencyMatrix, matrixOutOfBounds){
-    AdjacencyMatrix matrix(SIZE);
-    EXPECT_NO_FATAL_FAILURE(matrix.connect(5, 6));
+TEST(AdjacencyMatrix, connectAlreadyConnected){
+    AdjacencyMatrix matrix(SIZE, true, 0);
+    EXPECT_TRUE(matrix.connect(2, 1, 10));
+    EXPECT_FALSE(matrix.connect(2, 1, 0));
 }
-
-TEST(AdjacencyMatrix, martixConnectionsAfterResize){ //expect removed connections
-    AdjacencyMatrix matrix(SIZE);
-    matrix.connect(0, 1);
-    EXPECT_NO_FATAL_FAILURE(matrix.setVertices(SIZE + 1));
-    EXPECT_TRUE(matrix.connect(0, 1));
-    matrix = AdjacencyMatrix(SIZE);
-    matrix.connect(0, 1);
-    EXPECT_NO_FATAL_FAILURE(matrix.setVertices(SIZE - 1));
-    EXPECT_TRUE(matrix.connect(0, 1));
+TEST(AdjacencyMatrix, connectOutOfBounds){
+    AdjacencyMatrix matrix(SIZE, true, 0);
+    EXPECT_ANY_THROW(matrix.connect(SIZE, SIZE + 1, 0));
+    EXPECT_ANY_THROW(matrix.connect(SIZE - SIZE, SIZE - SIZE - 1, 0));
 }
-
-TEST(AdjacencyMatrix, setVertices){
-    AdjacencyMatrix matrix(SIZE);
-    matrix.setVertices(10);
-    EXPECT_TRUE(matrix.connect(0,9));
+TEST(AdjacencyMatrix, disconnectAlreadyDisconnected){
+    AdjacencyMatrix matrix(SIZE, true, 0);
+    EXPECT_FALSE(matrix.disconnect(2, 0));
+    EXPECT_TRUE(matrix.connect(2, 0, 1));
+    EXPECT_TRUE(matrix.disconnect(2, 0));
+    EXPECT_FALSE(matrix.disconnect(2, 0));
 }
-
-TEST(AdjacencyMatrix, print){
-    AdjacencyMatrix matrix(SIZE - 2); //3x3 MATRIX
-    EXPECT_EQ(matrix.print(), "0 0 0 \n0 0 0 \n0 0 0 \n"); //cursed test
+TEST(AdjacencyMatrix, disconnectOutOfBounds){
+    AdjacencyMatrix matrix(SIZE, true, 0);
+    EXPECT_ANY_THROW(matrix.disconnect(SIZE, SIZE + 1));
+    EXPECT_ANY_THROW(matrix.disconnect(SIZE - SIZE, SIZE - SIZE - 1));
+}
+TEST(AdjacencyMatrix, copyConstructor){
+    AdjacencyMatrix matrix(SIZE, true, 75);
+    AdjacencyMatrix matrix2(matrix);
+    EXPECT_EQ(matrix.print(), matrix.print());
+}
+TEST(AdjacencyMatrix, equalOperator){
+    AdjacencyMatrix matrix(SIZE, true, 75);
+    AdjacencyMatrix matrix2 = matrix;
+    EXPECT_EQ(matrix.print(), matrix2.print());
 }

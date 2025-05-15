@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.31)
+cmake_minimum_required(VERSION 3.30.5)
 project(pwr_AiZO_project2)
 
 set(CMAKE_CXX_STANDARD 20)
@@ -8,13 +8,19 @@ add_executable(pwr_AiZO_project2 src/main.cpp
         include/graph/AdjacencyList.h
         src/AdjacencyList.cpp
         src/AdjacencyMatrix.cpp
-        include/graph/GraphBuilder.h
         include/algorithms/MST/MstAlgorithmBase.h
         include/algorithms/path/PathAlgorithmBase.h
         include/algorithms/MST/PrimAlgorithm.h
         include/algorithms/MST/KruskalAlgorithm.h
         include/algorithms/path/DijkstraAlgorithm.h
         include/algorithms/path/FordBellmanAlgorithm.h
+        src/MstAlgorithmBase.cpp
+        include/graph/Graph.h
+        src/KruskalAlgorithm.cpp
+        src/PrimAlgorithm.cpp
+        src/PathAlgorithmBase.cpp
+        src/DijkstraAlgorithm.cpp
+        src/FordBellmanAlgorithm.cpp
 
 )
 
@@ -34,6 +40,11 @@ add_executable(tests
         tests/test_AdjacencyList.cpp
         src/AdjacencyMatrix.cpp
         src/AdjacencyList.cpp
+        src/MstAlgorithmBase.cpp
+        src/KruskalAlgorithm.cpp
+        src/PathAlgorithmBase.cpp
+        src/DijkstraAlgorithm.cpp
+        src/FordBellmanAlgorithm.cpp
 )
 
 target_include_directories(tests PRIVATE include)
