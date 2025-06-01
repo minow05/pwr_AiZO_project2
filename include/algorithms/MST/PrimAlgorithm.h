@@ -5,9 +5,8 @@
 
 class PrimAlgorithm : public MstAlgorithmBase {
 public:
-    PrimAlgorithm(Graph *graph);
+    explicit PrimAlgorithm(Graph *graph);
 private:
-    void algorithmImp() override;
-    bool checkCycle(int vertex) override;
+    void algorithmImp(int startingVertex) override;
 };
 #endif //PWR_AIZO_PROJECT2_PRIMALGORITHM_H

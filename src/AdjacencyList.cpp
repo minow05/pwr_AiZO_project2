@@ -77,7 +77,8 @@ AdjacencyList &AdjacencyList::operator=(const AdjacencyList &adjacencyList) {
 void AdjacencyList::build(float fill) {
     std::random_device rd;
     std::mt19937 gen(rd());
-    std::uniform_int_distribution<> dist(MINIMUM_WEIGHT, vertices - 1);
+    std::uniform_int_distribution<> dist(MINIMUM_WEIGHT, vertices);
+    std::uniform_int_distribution<> ver(0, vertices - 1);
     int counter = 0;
     for (int i = 1; i < vertices; i++){
         this->connect(i - 1, i, dist(gen));
@@ -86,8 +87,8 @@ void AdjacencyList::build(float fill) {
     float connectionsToFill = std::floor(static_cast<float>(vertices) * static_cast<float>(vertices - 1) * fill / 100.0);
     int toConnect = static_cast<int>(connectionsToFill) - counter;
     for (int i = 0; i < toConnect; i++){
-        int vertex1 = dist(gen);
-        int vertex2 = dist(gen);
+        int vertex1 = ver(gen);
+        int vertex2 = ver(gen);
         if (vertex1 == vertex2){
             i--;
             continue;
@@ -95,6 +96,8 @@ void AdjacencyList::build(float fill) {
         if(!this->connect(vertex1, vertex2, dist(gen))){
             i--;
             continue;
+        } else {
+            connect(vertex1, vertex2, dist(gen));
         }
     }
 }

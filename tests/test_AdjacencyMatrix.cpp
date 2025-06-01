@@ -7,9 +7,9 @@ TEST(AdjacencyMatrix, constructorFill) {
 }
 TEST(AdjacencyMatrix, constructorDirected){
     AdjacencyMatrix list(SIZE, true, 100);
-    EXPECT_TRUE(list.directed);
+    EXPECT_TRUE(list.isDirected());
     AdjacencyMatrix list2(SIZE, false, 100);
-    EXPECT_FALSE(list2.directed);
+    EXPECT_FALSE(list2.isDirected());
 }
 TEST(AdjacencyMatrix, connectAlreadyConnected){
     AdjacencyMatrix matrix(SIZE, true, 0);

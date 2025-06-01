@@ -8,12 +8,15 @@
 class PathAlgorithmBase {
 public:
     bool assignGraph(Graph* graph);
-    void run();
+    void run(int startingVertex, int endVertex);
     std::string getResult();
 protected:
     std::chrono::microseconds currentTime;
     Graph* graph = nullptr;
-    std::vector<int> path;
+    std::vector<std::tuple<int, int, int>> path;
+    int pathWeight = 0;
+    virtual void algorithmImp(int startingVertex, int endVertex) = 0;
+    void initializeMst();
 };
 
 #endif //PWR_AIZO_PROJECT2_PATHALGORITHMBASE_H

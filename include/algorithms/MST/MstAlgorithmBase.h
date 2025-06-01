@@ -10,15 +10,14 @@
 class MstAlgorithmBase{
 public:
     bool assignGraph(Graph* graph);
-    void run();
+    void run(int startingVertex);
     std::string getResult();
 protected:
     std::chrono::microseconds currentTime;
-    std::list<std::pair<int, int>> mst; //mst = {vertex, weight}
+    std::list<std::tuple<int, int, int>> mst; //mst = {vertex1, vertex2, weight}
     Graph* graph = nullptr;
-    virtual void algorithmImp() = 0;
+    virtual void algorithmImp(int startingVertex) = 0;
     void initializeMst();
-    virtual bool checkCycle(int vertex) = 0;
 };
 
 #endif //PWR_AIZO_PROJECT2_MSTALGORITHMBASE_H

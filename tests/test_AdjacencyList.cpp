@@ -8,9 +8,9 @@ TEST(AdjacencyList, constructorFill) {
 }
 TEST(AdjacencyList, constructorDirected){
     AdjacencyList list(SIZE, true, 100);
-    EXPECT_TRUE(list.directed);
+    EXPECT_TRUE(list.isDirected());
     AdjacencyList list2(SIZE, false, 100);
-    EXPECT_FALSE(list2.directed);
+    EXPECT_FALSE(list2.isDirected());
 }
 TEST(AdjacencyList, connectAlreadyConnected){
     AdjacencyList list(SIZE, true, 0);

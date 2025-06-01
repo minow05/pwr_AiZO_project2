@@ -5,8 +5,13 @@
 #include "MstAlgorithmBase.h"
 
 class KruskalAlgorithm : public MstAlgorithmBase{
+public:
+    explicit KruskalAlgorithm(Graph *graph);
 private:
-    void algorithmImp() override;
-    bool checkCycle(int vertex) override;
+    std::vector<int> color;
+    void algorithmImp(int startingVertex) override;
+    bool checkCycle(int sourceVertex, int targetVertex);
+    int find(int v);
+    void unionSets(int a, int b);
 };
 #endif //PWR_AIZO_PROJECT2_KRUSKALALGORITHM_H

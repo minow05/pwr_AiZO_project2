@@ -5,7 +5,7 @@
 #include <vector>
 
 #define MINIMUM_WEIGHT 1
-#define NOCONNECTION 0
+#define NO_CONNECTION 0
 
 class Graph {
 public:

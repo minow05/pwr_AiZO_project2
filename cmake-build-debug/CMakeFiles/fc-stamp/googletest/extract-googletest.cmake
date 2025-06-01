@@ -1,12 +1,12 @@
 # Distributed under the OSI-approved BSD 3-Clause License.  See accompanying
 # file Copyright.txt or https://cmake.org/licensing for details.
 
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION ${CMAKE_VERSION}) # this file comes with cmake
 
 # Make file names absolute:
 #
-get_filename_component(filename "C:/GitHub_repos/pwr_AiZO_project2/cmake-build-debug/_deps/googletest-tmp/03597a01ee50ed33e9dfd640b249b4be3799d395.zip" ABSOLUTE)
-get_filename_component(directory "C:/GitHub_repos/pwr_AiZO_project2/cmake-build-debug/_deps/googletest-src" ABSOLUTE)
+get_filename_component(filename "D:/GitHub_Repos/pwr_AiZO_project2/cmake-build-debug/_deps/googletest-tmp/03597a01ee50ed33e9dfd640b249b4be3799d395.zip" ABSOLUTE)
+get_filename_component(directory "D:/GitHub_Repos/pwr_AiZO_project2/cmake-build-debug/_deps/googletest-src" ABSOLUTE)
 
 message(VERBOSE "extracting...
      src='${filename}'
