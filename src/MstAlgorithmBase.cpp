@@ -27,13 +27,14 @@ bool MstAlgorithmBase::assignGraph(Graph *graph) {
 
 std::string MstAlgorithmBase::getResult() {
     std::ostringstream output;
+    output << "Graph: " << graph->getNumberOfVertices() <<  " vertices\n";
     output << "Time: " << currentTime.count() << " us\n";
-    int totalWeight = 0;
-    for (auto element : mst) {
-        output << "Vertex1: " << get<0>(element) << " Vertex2: " << get<1>(element) << " Weight: " << get<2>(element) << '\n';
-        totalWeight += get<2>(element);
-    }
-    output << "Total weight: " << totalWeight << '\n';
+//    int totalWeight = 0;
+//    for (auto element : mst) {
+//        output << "Vertex1: " << get<0>(element) << " Vertex2: " << get<1>(element) << " Weight: " << get<2>(element) << '\n';
+//        totalWeight += get<2>(element);
+//    }
+//    output << "Total weight: " << totalWeight << '\n';
     return output.str();
 }
 

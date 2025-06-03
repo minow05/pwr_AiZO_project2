@@ -9,5 +9,6 @@ public:
     explicit FordBellmanAlgorithm(Graph* graph);
 private:
     void algorithmImp(int startingVertex, int endVertex) override;
+    void negativeCycle();
 };
 #endif //PWR_AIZO_PROJECT2_FORDBELLMANALGORITHM_H

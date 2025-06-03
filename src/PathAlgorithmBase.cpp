@@ -24,14 +24,15 @@ void PathAlgorithmBase::run(int startingVertex, int endVertex) {
 
 std::string PathAlgorithmBase::getResult() {
     std::ostringstream output;
+    output << "Graph: " << graph->getNumberOfVertices() <<  " vertices\n";
     output << "Time: " << currentTime.count() << " us\n";
-    for (auto element : path) {
-        output << "Vertex1: " << get<0>(element) << " Vertex2: " << get<1>(element) << " Weight: " << get<2>(element) << '\n';
-    }
-    output << "Total weight: " << pathWeight << '\n';
+//    for (auto element : path) {
+//        output << "Vertex1: " << get<0>(element) << " Vertex2: " << get<1>(element) << " Weight: " << get<2>(element) << '\n';
+//    }
+//    output << "Total weight: " << pathWeight << '\n';
     return output.str();
 }
 
 void PathAlgorithmBase::initializeMst() {
-    this->path = std::vector<std::tuple<int, int, int>>(graph->getNumberOfVertices());
+    this->path = std::vector<std::tuple<int, int, int>>();
 }
